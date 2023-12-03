@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vendas</title>
 </head>
-<body>
+
+@vite(['resources/css/app.css'])
+
+<body id="body">
     <form action="{{route('create.product')}}" method="POST">
         @csrf
         <label>Nome</label>
