@@ -7,8 +7,6 @@
     <title>Vendas</title>
 </head>
 
-@vite(['resources/css/app.css'])
-
 <body id="body">
     <form action="{{route('create.product')}}" method="POST">
         @csrf
@@ -26,4 +24,6 @@
         <button type="submit">Enviar</button>
     </form>
 </body>
+
+<script src="{{asset('assets/js/app.js')}}"></script>
 </html>
