@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function(){
+   return view('welcome'); 
+});
+
+Route::get('/testebanco', function () {
     $connection = DB::connection('mongodb');
     $msg = 'MongoDB is accessible!';
     try {  
@@ -29,10 +33,9 @@ Route::get('/', function () {
 
 Route::get('/teste', function () {
     return Product::create([
-                'guid'=> 'cust_0000',
-                'first_name'=> 'John',
-                'family_name' => 'Doe',
-                'email' => 'j.doe@gmail.com',
-                'address' => '123 my street, my city, zip, state, country'
+                'nome' => 'maçã', 
+                'quantidadeEstoque' => 500, 
+                'valorUnitario' => 2,50, 
+                'unidadeMedida' => 'KG',
             ]);;
 });
