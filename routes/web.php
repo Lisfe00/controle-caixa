@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use App\Http\Controllers\SailsController;
+use App\Http\Controllers\ProductController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,26 +18,8 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', function(){
-   return view('welcome'); 
-});
+Route::get('/', [SailsController::class, 'index'])->name('sails.view');
 
-Route::get('/testebanco', function () {
-    $connection = DB::connection('mongodb');
-    $msg = 'MongoDB is accessible!';
-    try {  
-    $connection->command(['ping' => 1]);  
-    } catch (\Exception  $e) {  
-    $msg = 'MongoDB is not accessible. Error: ' . $e->getMessage();
-    }
-    return ['msg' => $msg];
-});
-
-Route::get('/teste', function () {
-    return Product::create([
-                'nome' => 'maçã', 
-                'quantidadeEstoque' => 500, 
-                'valorUnitario' => 2,50, 
-                'unidadeMedida' => 'KG',
-            ]);;
-});
+Route::get('/list', [ProductController::class, 'list'])->name('list.products');
+Route::get('/create/product', [ProductController::class, 'index'])->name('create.product.view');
+Route::post('/create/product', [ProductController::class, 'create'])->name('create.product');
