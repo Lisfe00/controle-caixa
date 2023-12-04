@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="{{asset('assets/css/app.css')}}">
 
@@ -64,7 +64,7 @@
                             <option value="unid">Unidade</option>
                         </select>
                     </div>
-                    <button type="button" onclick="finalizarCadastroProduto()">Cadastrar produto</button>
+                    <button type="submit" onclick="finalizarCadastroProduto()">Cadastrar produto</button>
             </form>
         </section>
         <section>
@@ -85,47 +85,33 @@
                     </tr>
                 </thead>
                 <tbody id="produtosTbody">
+                    @foreach($products as $product)
                     <tr>
-                        <td>1</td>
-                        <td>Arroz</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>9</td>
-                        <td>kg</td>
-                        <td>2021-10-10 10:10:10</td>
+                        <td>{{$product->codigo}}</td>
+                        <td>{{$product->nome}}</td>
+                        <td>{{$product->quantidadeEstoque}}</td>
+                        <td>{{$product->valorUnitario}}</td>
+                        <td>{{$product->valorUnitarioComDesconto}}</td>
+                        <td>{{$product->unidadeMedida}}</td>
+                        <td>{{$product->updated_at}}</td>
                         <td>
-                            <button type="button" onclick="editarProduto(1)">Editar</button>
-                            <button type="button" onclick="excluirProduto(1)">Excluir</button>
+                            <button type="button" onclick="showModalUpdate('{{$product->_id}}')">Editar</button>
+                            <button type="button" onclick="showModalDelete('{{$product->_id}}')">Excluir</button>
                         </td>
                     </tr>
                 </tbody>
+                @endforeach
             </table>
 
         </section>
 
     </main>
-    <div class="modal fade" id="editarProdutoModal" tabindex="-1" role="dialog" aria-labelledby="editarProdutoModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editarProdutoModalLabel">Editar Produto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="editarProdutoForm">
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" onclick="salvarAlteracoesProduto()">Salvar Alterações</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
-<script src="{{asset('assets/js/app.js')}}"></script>
 
+<script src="{{asset('assets/js/app.js')}}"></script>
+<script src="{{asset('assets/js/ajax_products.js')}}"></script>
+
+@include('components.modal-products')
+@include('components.modal-excluir')
 </html>

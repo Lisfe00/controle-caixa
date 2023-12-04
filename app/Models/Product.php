@@ -13,9 +13,11 @@ class Product extends Model
     protected  $connection = 'mongodb';
 
     protected  $fillable = [
+        'codigo',
         'nome', 
         'quantidadeEstoque', 
         'valorUnitario', 
+        'valorUnitarioComDesconto', 
         'unidadeMedida',
     ];
 }

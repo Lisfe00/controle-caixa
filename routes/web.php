@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', [SalesController::class, 'index'])->name('sales.view');
 
-Route::get('/list', [ProductController::class, 'list'])->name('list.products');
-Route::get('/create/product', [ProductController::class, 'index'])->name('create.product.view');
-Route::post('/create/product', [ProductController::class, 'create'])->name('create.product');
+Route::post('/create/product/', [ProductController::class, 'create'])->name('create.product');
+Route::post('/update/product/', [ProductController::class, 'update']);
+Route::get('/create/product/', [ProductController::class, 'index'])->name('create.product.view');
+Route::get('/get/product/{id}', [ProductController::class, 'get_product']);
+Route::get('/delete/product/{id}', [ProductController::class, 'delete']);

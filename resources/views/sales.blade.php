@@ -32,7 +32,7 @@
             <h1>
                 Venda de produtos
             </h1>
-            <form class="vendasForm" id="myForm">
+            <form class="vendasForm" id="myForm" action="{{route('create.sale')}}" method="POST">
                 @csrf
                 <div>
                     <label>Cliente clube?</label>

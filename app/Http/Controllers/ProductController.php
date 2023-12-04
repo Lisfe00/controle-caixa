@@ -8,22 +8,46 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function index(){
-        return view('product_create');
+
+        $products = Product::all();
+        return view('product_create', ['products' => $products]);
     }
 
     public function create(Request $request){
+
         Product::create(
         [
+            'codigo' => $request->codigo, 
             'nome' => $request->nome, 
             'quantidadeEstoque' => $request->quantidadeEstoque, 
             'valorUnitario' => $request->valorUnitario, 
+            'valorUnitarioComDesconto' => $request->valorUnitarioComDesconto, 
             'unidadeMedida' => $request->unidadeMedida,
         ]);
 
-        return view('sails');
+        return redirect('create/product');
     }
 
-    public function list(){
-       Product::all();
+    public function update(Request $request){
+
+        return Product::where('_id', $request->id)->update([
+            'codigo' => $request->codigo,
+            'nome' => $request->nome, 
+            'quantidadeEstoque' => $request->quantidadeEstoque, 
+            'valorUnitario' => $request->valorUnitario, 
+            'valorUnitarioComDesconto' => $request->valorUnitarioComDesconto, 
+            'unidadeMedida' => $request->unidadeMedida,
+        ]); 
     }
+
+    public function get_product($id){
+
+        return Product::where('_id', $id)->first();
+    }
+
+    public function delete($id){
+
+        return Product::where('_id', $id)->delete();
+    }
+
 }
