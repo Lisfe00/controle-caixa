@@ -17,7 +17,7 @@
 <body id="body">
     <header>
         <nav class="nav-bar">
-            <a href="{{route('sails.view')}}">
+            <a href="{{route('sales.view')}}">
                 <img src="/assets/logotipo.svg" alt="">
             </a>
             <div class="items">

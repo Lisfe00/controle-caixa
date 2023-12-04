@@ -8,7 +8,7 @@ use App\Models\Sale;
 class SalesController extends Controller
 {
     Public function index(){
-        return view('Sales');
+        return view('sales');
     }
 
     public function create(Request $request){

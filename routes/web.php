@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Product;
-use App\Http\Controllers\SailsController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\ProductController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +17,7 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', [SailsController::class, 'index'])->name('sails.view');
+Route::get('/', [SalesController::class, 'index'])->name('sales.view');
 
 Route::get('/list', [ProductController::class, 'list'])->name('list.products');
 Route::get('/create/product', [ProductController::class, 'index'])->name('create.product.view');
