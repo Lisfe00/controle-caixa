@@ -53,6 +53,10 @@
                         <label>Data nascimento do cliente</label>
                         <input type="date" name="dataNascimento">
                     </div>
+                    <div>
+                        <label>Telefone do cliente</label>
+                        <input type="text" name="telefone">
+                    </div>
                     <button type="submit">Cadastrar cliente</button>
             </form>
         </section>
@@ -67,6 +71,7 @@
                         <th>Nome</th>
                         <th>Sobrenome</th>
                         <th>Data nascimento</th>
+                        <th>Telefone</th>
                         <th>Data Ultima Alteração</th>
                         <th>Ações</th>
                     </tr>
@@ -74,11 +79,12 @@
                 <tbody id="produtosTbody">
                     @foreach($clients as $client)
                     <tr>
-                        <td>{{$client->cpf}}</td>
+                        <td>{{$client->formatedCpf}}</td>
                         <td>{{$client->nome}}</td>
                         <td>{{$client->sobrenome}}</td>
-                        <td>{{$client->dataNascimento}}</td>
-                        <td>{{$client->updated_at}}</td>
+                        <td>{{Carbon\Carbon::parse($client->dataNascimento)->format('d/m/Y')}}</td>
+                        <td>{{$client->telefone}}</td>
+                        <td>{{Carbon\Carbon::parse($client->updated_at)->format('d/m/Y H:i')}}</td>
                         <td>
                             <button type="button" onclick="showModalUpdateClient('{{$client->_id}}')">Editar</button>
                             <button type="button" onclick="showModalDelete('{{$client->_id}}')">Excluir</button>

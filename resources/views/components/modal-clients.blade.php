@@ -24,6 +24,10 @@
                         <label>Data de nascimento do cliente</label>
                         <input id="dataNascimento_modal" type="text" name="dataNascimento" class="form-control">
                     </div>
+                    <div>
+                        <label>Telefone do cliente</label>
+                        <input id="telefone_modal" type="text" name="telefone" class="form-control">
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

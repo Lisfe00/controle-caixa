@@ -16,6 +16,7 @@ function showModalUpdateClient(id) {
             document.querySelector('#nome_modal').value = data.nome;
             document.querySelector('#sobrenome_modal').value = data.sobrenome;
             document.querySelector('#dataNascimento_modal').value = data.dataNascimento;
+            document.querySelector('#telefone_modal').value = data.telefone;
         },
         error: function (data) {
             console.log(data, 'erro');
@@ -33,6 +34,7 @@ function updateClient(){
         nome : document.querySelector('#nome_modal').value,
         sobrenome : document.querySelector('#sobrenome_modal').value,
         dataNascimento : document.querySelector('#dataNascimento_modal').value,
+        telefone : document.querySelector('#telefone_modal').value,
     }
 
     $.ajaxSetup({

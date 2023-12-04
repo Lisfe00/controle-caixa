@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use Carbon\Carbon;
 
 class ClientController extends Controller
 {
     public function index(){
+
         $clients = Client::all();
         return view('client', ['clients' => $clients]);
     }
@@ -18,6 +20,7 @@ class ClientController extends Controller
             'nome' => $request->nome,
             'sobrenome' => $request->sobrenome,
             'dataNascimento' => $request->dataNascimento,
+            'telefone' => $request->telefone,
         ]);
 
         return redirect('create/client');
@@ -34,6 +37,7 @@ class ClientController extends Controller
             'nome' => $request->nome,
             'sobrenome' => $request->sobrenome,
             'dataNascimento' => $request->dataNascimento,
+            'telefone' => $request->telefone,
         ]);
     }
 

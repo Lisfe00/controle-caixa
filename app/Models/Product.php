@@ -20,4 +20,20 @@ class Product extends Model
         'valorUnitarioComDesconto', 
         'unidadeMedida',
     ];
+
+    protected $append = [
+        'ValorUnitarioFormat',
+        'valorUnitarioComDescontoFormat'
+    ];
+
+    function getValorUnitarioFormatAttribute(){
+        return 'R$ '.number_format($this->valorUnitario, 2, ',', '.');
+    }
+
+    function getvalorUnitarioComDescontoFormatAttribute(){
+        return 'R$ '.number_format($this->valorUnitarioComDesconto, 2, ',', '.');
+    }
 }
+
+
+

@@ -90,10 +90,10 @@
                         <td>{{$product->codigo}}</td>
                         <td>{{$product->nome}}</td>
                         <td>{{$product->quantidadeEstoque}}</td>
-                        <td>{{$product->valorUnitario}}</td>
-                        <td>{{$product->valorUnitarioComDesconto}}</td>
+                        <td>{{$product->ValorUnitarioFormat}}</td>
+                        <td>{{$product->valorUnitarioComDescontoFormat}}</td>
                         <td>{{$product->unidadeMedida}}</td>
-                        <td>{{$product->updated_at}}</td>
+                        <td>{{Carbon\Carbon::parse($product->updated_at)->format('d/m/Y H:i')}}</td>
                         <td>
                             <button type="button" onclick="showModalUpdate('{{$product->_id}}')">Editar</button>
                             <button type="button" onclick="showModalDelete('{{$product->_id}}')">Excluir</button>
