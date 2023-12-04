@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+
+:root {
+    --color-primary: #573d2c;
+    --color-secondary: #276617;
+    --color-black: #000000;
+    --color-white: #ffffff;
+}
+
+body {
+    margin: 10px 50px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.items a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 300;
+    transition: all 0.3s;
+}
+
+.items a:hover {
+    color: var(--color-secondary);
+}
+
+.clube-cpf {
+    display: none;
+}
+
+.vendasForm {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.vendasForm div,
+.vendasForm input,
+.vendasForm select,
+.vendasForm label {
+    width: 100%;
+}
+
+.vendasForm button {
+    width: 50%;
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.edit-btn {
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.save-btn {
+    cursor: pointer;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}

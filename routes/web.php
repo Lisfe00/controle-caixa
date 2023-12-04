@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', [SailsController::class, 'index'])->name('sails.view');
-
 Route::get('/list', [ProductController::class, 'list'])->name('list.products');
 Route::get('/create/product', [ProductController::class, 'index'])->name('create.product.view');
 Route::post('/create/product', [ProductController::class, 'create'])->name('create.product');
