@@ -1,4 +1,4 @@
-function showModalUpdate(id) {
+function showModalUpdateClient(id) {
 
     $.ajaxSetup({
         headers: {
@@ -7,36 +7,32 @@ function showModalUpdate(id) {
     });
 
     $.ajax({
-        url: '/get/product/'+id,
+        url: '/get/client/'+id,
         method: 'GET',
         dataType: 'json',
         success: function(data){
             document.querySelector('#id').value = data._id;
-            document.querySelector('#codigo_modal').value = data.codigo;
+            document.querySelector('#cpf_modal').value = data.cpf;
             document.querySelector('#nome_modal').value = data.nome;
-            document.querySelector('#quantidadeEstoque_modal').value = data.quantidadeEstoque;
-            document.querySelector('#valorUnitario_modal').value = data.valorUnitario;
-            document.querySelector('#valorUnitarioComDesconto_modal').value = data.valorUnitarioComDesconto;
-            document.querySelector('#unidadeMedida_modal').value = data.unidadeMedida;
+            document.querySelector('#sobrenome_modal').value = data.sobrenome;
+            document.querySelector('#dataNascimento_modal').value = data.dataNascimento;
         },
         error: function (data) {
             console.log(data, 'erro');
         } 
     });
 
-    $("#editarProdutoModal").modal("show");
+    $("#editarClienteModal").modal("show");
 }
 
-function updateProduct(){
+function updateClient(){
 
     data = {
         id : document.querySelector('#id').value,
-        codigo : document.querySelector('#codigo_modal').value,
+        cpf : document.querySelector('#cpf_modal').value,
         nome : document.querySelector('#nome_modal').value,
-        quantidadeEstoque : document.querySelector('#quantidadeEstoque_modal').value,
-        valorUnitario : document.querySelector('#valorUnitario_modal').value,
-        valorUnitarioComDesconto : document.querySelector('#valorUnitarioComDesconto_modal').value,
-        unidadeMedida : document.querySelector('#unidadeMedida_modal').value,
+        sobrenome : document.querySelector('#sobrenome_modal').value,
+        dataNascimento : document.querySelector('#dataNascimento_modal').value,
     }
 
     $.ajaxSetup({
@@ -46,7 +42,7 @@ function updateProduct(){
     });
 
     $.ajax({
-        url: '/update/product/',
+        url: '/update/client/',
         method: 'POST',
         data: data,
         dataType: 'json',
@@ -70,12 +66,12 @@ function showModalDelete(id) {
     });
 
     $.ajax({
-        url: '/get/product/'+id,
+        url: '/get/client/'+id,
         method: 'GET',
         dataType: 'json',
         success: function(data){
             document.querySelector('#id_modal_excluir').value = data._id;
-            document.querySelector('#text_modal').innerText = 'Tem certeza que deseja excluir o produto '+data.nome+'?';
+            document.querySelector('#text_modal').innerText = 'Tem certeza que deseja excluir o cliente '+data.nome+'?';
         },
         error: function (data) {
             console.log(data, 'erro');
@@ -96,7 +92,7 @@ function deleteItem(){
     });
 
     $.ajax({
-        url: '/delete/product/'+id,
+        url: '/delete/client/'+id,
         method: 'GET',
         dataType: 'json',
         success: function(data){

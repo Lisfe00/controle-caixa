@@ -15,7 +15,7 @@ class Client extends Model
     protected  $fillable = [
         'cpf',
         'nome',
-        'sebrenome',
+        'sobrenome',
         'dataNascimento',
     ];
 }

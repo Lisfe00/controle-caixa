@@ -10,7 +10,7 @@ class ProductController extends Controller
     public function index(){
 
         $products = Product::all();
-        return view('product_create', ['products' => $products]);
+        return view('product', ['products' => $products]);
     }
 
     public function create(Request $request){

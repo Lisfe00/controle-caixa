@@ -8,15 +8,37 @@ use App\Models\Client;
 class ClientController extends Controller
 {
     public function index(){
-        return view('client');
+        $clients = Client::all();
+        return view('client', ['clients' => $clients]);
     }
 
     public function create(Request $request){
         Client::create([
             'cpf' => $request->cpf,
             'nome' => $request->nome,
-            'sebrenome' => $request->sebrenome,
+            'sobrenome' => $request->sobrenome,
             'dataNascimento' => $request->dataNascimento,
         ]);
+
+        return redirect('create/client');
+    }
+
+    public function get_client($id){
+        return Client::where('_id', $id)->first();
+    }
+
+    public function update(Request $request){
+
+        return Client::where('_id', $request->id)->update([
+            'cpf' => $request->cpf,
+            'nome' => $request->nome,
+            'sobrenome' => $request->sobrenome,
+            'dataNascimento' => $request->dataNascimento,
+        ]);
+    }
+
+    public function delete($id){
+
+        return Client::where('_id', $id)->delete();
     }
 }

@@ -22,7 +22,7 @@
             </a>
             <div class="items">
                 <a href="{{route('create.product.view')}}">Produtos</a>
-                <a>Clube especial</a>
+                <a href="{{route('create.client.view')}}">Clube especial</a>
                 <a>Histórico de vendas</a>
             </div>
         </nav>
@@ -64,7 +64,7 @@
                             <option value="unid">Unidade</option>
                         </select>
                     </div>
-                    <button type="submit" onclick="finalizarCadastroProduto()">Cadastrar produto</button>
+                    <button type="submit">Cadastrar produto</button>
             </form>
         </section>
         <section>

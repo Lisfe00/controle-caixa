@@ -13,7 +13,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="deleteProduct()">Sim, tenho certeza</button>
+                <button type="button" class="btn btn-primary" onclick="deleteItem()">Sim, tenho certeza</button>
             </div>
         </div>
     </div>

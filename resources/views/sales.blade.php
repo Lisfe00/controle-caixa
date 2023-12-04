@@ -17,7 +17,7 @@
             </a>
             <div class="items">
                 <a href="{{route('create.product.view')}}">Produtos</a>
-                <a>Clube especial</a>
+                <a href="{{route('create.client.view')}}">Clube especial</a>
                 <a>Histórico de vendas</a>
             </div>
         </nav>
@@ -32,7 +32,7 @@
             <h1>
                 Venda de produtos
             </h1>
-            <form class="vendasForm" id="myForm" action="{{route('create.sale')}}" method="POST">
+            <form class="vendasForm" id="myForm" method="POST">
                 @csrf
                 <div>
                     <label>Cliente clube?</label>
