@@ -15,13 +15,23 @@ class SalesController extends Controller
     }
 
     public function create(Request $request){
-        return Sale::create([
+         Sale::create([
             'clienteClube' => $request->clienteClube,
             'produtos' => json_decode($request->products, true),
             'valorTotal' => $request->valorTotal,
             'valorComDesconto' => $request->valorComDeconto,
             'metodoPagamento' => $request->pagamento,
         ]);
+
+        foreach(json_decode($request->products, true) as $product){
+            $produto =Product::where('codigo', $product['codigo'])->first();
+            $produto = $produto->quantidadeEstoque - intval($product['quantidade']);
+            Product::where('codigo', $product['codigo'])->update([
+                'quantidadeEstoque' => $produto
+            ]);
+        }
+
+        return "ok";
     }
 
     public function get_product($codigo){
