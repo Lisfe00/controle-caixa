@@ -22,7 +22,7 @@
                     </div>
                     <div>
                         <label>Data de nascimento do cliente</label>
-                        <input id="dataNascimento_modal" type="text" name="dataNascimento" class="form-control">
+                        <input id="dataNascimento_modal" type="date" name="dataNascimento" class="form-control">
                     </div>
                     <div>
                         <label>Telefone do cliente</label>
