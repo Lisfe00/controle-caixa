@@ -30,7 +30,7 @@
     <main>
         <header>
             <h1>Olá, caixa 1.</h1>
-            <h3>Hoje você já realizou 1 venda!</h3>
+            <h3>Hoje você já realizou {{$vendas}} venda!</h3>
         </header>
         <section>
             <h1>

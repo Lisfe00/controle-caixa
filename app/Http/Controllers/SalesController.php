@@ -11,7 +11,8 @@ use Illuminate\Http\JsonResponse;
 class SalesController extends Controller
 {
     Public function index(){
-        return view('sales');
+        $vendas = Sale::get()->count();
+        return view('sales', ['vendas' => $vendas]);
     }
 
     public function create(Request $request){

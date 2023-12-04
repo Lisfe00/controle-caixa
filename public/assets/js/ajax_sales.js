@@ -137,4 +137,6 @@ function create(){
             console.log(data, 'erro');
         } 
     });
+
+    window.location.reload(true);
 }
