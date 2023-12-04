@@ -33,6 +33,3 @@ EXPOSE 8000
 
 # Execute o servidor web do Laravel
 CMD php artisan serve --host=0.0.0.0 --port=8000
-
-RUN apt install npm
-RUN npm install

@@ -24,6 +24,6 @@ class ProductController extends Controller
     }
 
     public function list(){
-        dd(Product::all());
+       Product::all();
     }
 }
