@@ -3,15 +3,14 @@ const clube = document.querySelector("#cliente-clube");
 if (clube) {
     clube.addEventListener("change", function () {
         const clubeCpf = document.querySelector("#input-clube");
-        const submitCpf = document.querySelector("#button-clube");
+        const nomeCliente = document.querySelector("#nome_pessoa");
         const valorDesconto = document.querySelector("#valor-desconto");
         if (clube.value == "sim") {
             clubeCpf.style.display = "flex";
-            submitCpf.style.display = "flex";
             valorDesconto.style.display = "flex";
         } else {
             clubeCpf.style.display = "none";
-            submitCpf.style.display = "none";
+            nomeCliente.value = "Este não é um cliente clube";
             valorDesconto.style.display = "none";
         }
     });
@@ -31,8 +30,9 @@ function addProduct() {
 
     productContainer.innerHTML = `
                 <label>Produto ${productCounter}</label>
-                <input type="text" name="codigo${productCounter}" placeholder="codigo">
-                <input type="text" name="quantidade${productCounter}" placeholder="quantidade">
+                <input type="text" id="codigo_produto" name="codigo" placeholder="codigo" onblur="getProduct(this)">
+                <input type="text" id="name" name="name" disabled>
+                <input type="text" id="quantidade_produto" name="quantidade" placeholder="quantidade" onblur="makeValue()">
                 <button type="button" onclick="removeProduct('${productId}')">Remover Produto</button>
             `;
 

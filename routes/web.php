@@ -32,3 +32,8 @@ Route::get('/create/client/', [ClientController::class, 'index'])->name('create.
 Route::get('/get/client/{id}', [ClientController::class, 'get_client']);
 Route::get('/delete/client/{id}', [ClientController::class, 'delete']);
 
+Route::post('/get/sale/value/', [SalesController::class, 'get_value']);
+Route::post('/create/sale/', [SalesController::class, 'create'])->name('create.sale');
+Route::get('/get/sale/product/{codigo}', [SalesController::class, 'get_product']);
+Route::get('/get/sale/client/{cpf}', [SalesController::class, 'get_client']);
+
