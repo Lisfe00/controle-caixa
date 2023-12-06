@@ -34,10 +34,10 @@ class Sale extends Model
     ];
 
     function getvalorTotalFormatAttribute(){
-        return 'R$ '.number_format($this->valorTotal, 2, ',', '.');
+        return 'R$ '.number_format((float)$this->valorTotal, 2, ',', '.');
     }
 
     function getvalorComDescontoFormatAttribute(){
-        return 'R$ '.number_format($this->valorComDesconto, 2, ',', '.');
+        return 'R$ '.number_format((float)$this->valorComDesconto, 2, ',', '.');
     }
 }

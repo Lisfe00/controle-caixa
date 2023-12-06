@@ -35,11 +35,11 @@ class Product extends Model
     ];
 
     function getValorUnitarioFormatAttribute(){
-        return 'R$ '.number_format($this->valorUnitario, 2, ',', '.');
+        return 'R$ '.number_format((float)$this->valorUnitario, 2, ',', ',');
     }
 
     function getvalorUnitarioComDescontoFormatAttribute(){
-        return 'R$ '.number_format($this->valorUnitarioComDesconto, 2, ',', '.');
+        return 'R$ '.number_format((float)$this->valorUnitarioComDesconto, 2, ',', ',');
     }
 }
 
