@@ -84,8 +84,8 @@ class SalesController extends Controller
 
         foreach($datas as $data){
             $product = Product::where('codigo', $data['codigo'])->first();
-            $valor += $data['quantidade'] * $product->valorUnitario;
-            $valorCDesc += $data['quantidade'] * $product->valorUnitarioComDesconto;
+            $valor += $data['quantidade'] * (float)$product->valorUnitario;
+            $valorCDesc += $data['quantidade'] * (float)$product->valorUnitarioComDesconto;
         }
 
         $valor = 'R$ '.number_format($valor, 2, ',', '.');
