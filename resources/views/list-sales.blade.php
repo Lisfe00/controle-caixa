@@ -41,12 +41,12 @@
     <div class="container mt-5">
     <table class="table">
         <thead>
-        <tr>
-            <td style="background-color: rgb(185, 224, 221)" scope="col">Cpf cliente</td>
-            <td style="background-color: rgb(185, 224, 221)" scope="col">Valor total</td>
-            <td style="background-color: rgb(185, 224, 221)" scope="col">Valor com desconto</td>
-            <td style="background-color: rgb(185, 224, 221)" scope="col">Client clube</td>
-            <td style="background-color: rgb(185, 224, 221)" scope="col">Forma de pagamento</td>
+        <tr class="table-primary">
+            <th>Cpf cliente</th>
+            <th>Valor total</th>
+            <th>Valor com desconto</th>
+            <th>Client clube</th>
+            <th>Forma de pagamento</th>
         </tr>
         </thead>
         <tbody>
