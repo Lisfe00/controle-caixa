@@ -15,6 +15,27 @@ class SalesController extends Controller
         return view('sales', ['vendas' => $vendas]);
     }
 
+    public function show_sales(){
+        $sales = Sale::all();
+
+        $sales->transform(function ($sale) {
+            $sale->produtos = collect($sale->produtos)->map(function ($produto) {
+                $produto['nome'] = Product::where('codigo', $produto['codigo'])->first()->nome;
+                $produto['unidadeMedida'] = Product::where('codigo', $produto['codigo'])->first()->unidadeMedida;
+                return $produto;
+            });
+
+            if($sale->clienteClube != null){
+                $nomeCLiente = Client::where('cpf', $sale->clienteClube)->first();
+                $sale->nomeCliente = $nomeCLiente->nome.' '.$nomeCLiente->sobrenome;
+            }else{
+                $sale->nomeCliente = null;
+            }
+            return $sale;
+        }); 
+        return view('list-sales', ['sales' => $sales]);
+    }
+
     public function create(Request $request){
          Sale::create([
             'clienteClube' => $request->clienteClube,

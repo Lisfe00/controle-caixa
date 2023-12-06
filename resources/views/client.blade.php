@@ -23,7 +23,7 @@
             <div class="items">
                 <a href="{{route('create.product.view')}}">Produtos</a>
                 <a href="{{route('create.client.view')}}">Clube especial</a>
-                <a>Histórico de vendas</a>
+                <a href="{{route('show.sales')}}">Histórico de vendas</a>
             </div>
         </nav>
     </header>
@@ -40,33 +40,35 @@
                 @csrf
                 <div>
                         <label>Cpf do cliente:</label>
-                        <input type="text" name="cpf">
+                        <input type="number" class="form-control" name="cpf">
                     <div>    
                         <label>Nome do cliente:</label>
-                        <input type="text" name="nome">
+                        <input type="text" class="form-control" name="nome">
                     </div>
                     <div>
                         <label>Sobrenome do cliente:</label>
-                        <input type="text" name="sobrenome">
+                        <input type="text" class="form-control" name="sobrenome">
                     </div>
                     <div>
-                        <label>Data nascimento do cliente</label>
-                        <input type="date" name="dataNascimento">
+                        <label>Data nascimento do cliente:</label>
+                        <input type="date" class="form-control" name="dataNascimento">
                     </div>
                     <div>
-                        <label>Telefone do cliente</label>
-                        <input type="text" name="telefone">
+                        <label>Telefone do cliente:</label>
+                        <input type="text" class="form-control" name="telefone">
                     </div>
-                    <button type="submit">Cadastrar cliente</button>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Cadastrar cliente</button>
             </form>
         </section>
         <section>
+            <br>
             <h1>
                 Lista de clientes clube
             </h1>
-            <table id="produtoTable">
+            <table id="produtoTable"  class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr class="table-primary">
                         <th>Cpf</th>
                         <th>Nome</th>
                         <th>Sobrenome</th>
@@ -86,8 +88,8 @@
                         <td>{{$client->telefone}}</td>
                         <td>{{Carbon\Carbon::parse($client->updated_at)->format('d/m/Y H:i')}}</td>
                         <td>
-                            <button type="button" onclick="showModalUpdateClient('{{$client->_id}}')">Editar</button>
-                            <button type="button" onclick="showModalDelete('{{$client->_id}}')">Excluir</button>
+                            <button type="button"  class="btn btn-primary" onclick="showModalUpdateClient('{{$client->_id}}')">Editar</button>
+                            <button type="button"  class="btn btn-danger" onclick="showModalDelete('{{$client->_id}}')">Excluir</button>
                         </td>
                     </tr>
                 </tbody>

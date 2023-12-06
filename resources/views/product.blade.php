@@ -23,7 +23,7 @@
             <div class="items">
                 <a href="{{route('create.product.view')}}">Produtos</a>
                 <a href="{{route('create.client.view')}}">Clube especial</a>
-                <a>Histórico de vendas</a>
+                <a href="{{route('show.sales')}}">Histórico de vendas</a>
             </div>
         </nav>
     </header>
@@ -40,40 +40,42 @@
                 @csrf
                 <div>
                     <label>Código do produto:</label>
-                    <input type="text" name="codigo">
+                    <input class="form-control" type="text" name="codigo">
                     <div>
                         <label>Nome do produto:</label>
-                        <input type="text" name="nome">
+                        <input class="form-control" type="text" name="nome">
                     </div>
                     <div>
                         <label>Quantidade em estoque:</label>
-                        <input type="text" name="quantidadeEstoque">
+                        <input class="form-control" type="text" name="quantidadeEstoque">
                     </div>
                     <div>
-                        <label>Valor unitário</label>
-                        <input type="text" name="valorUnitario">
+                        <label>Valor unitário:</label>
+                        <input class="form-control" type="text" name="valorUnitario">
                     </div>
                     <div>
-                        <label>Valor unitário com desconto</label>
-                        <input type="text" name="valorUnitarioComDesconto">
+                        <label>Valor unitário com desconto:</label>
+                        <input class="form-control" type="text" name="valorUnitarioComDesconto">
                     </div>
                     <div>
-                        <label>Unidade de medida</label>
-                        <select name="unidadeMedida" id="">
+                        <label>Unidade de medida:</label>
+                        <select class="form-control" name="unidadeMedida" id="">
                             <option value="kg">Kg</option>
                             <option value="unid">Unidade</option>
                         </select>
                     </div>
-                    <button type="submit">Cadastrar produto</button>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Cadastrar produto</button>
             </form>
         </section>
         <section>
+            <br>
             <h1>
                 Lista de produtos
             </h1>
-            <table id="produtoTable">
+            <table id="produtoTable" class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr class="table-primary">
                         <th>Código</th>
                         <th>Nome</th>
                         <th>Quantidade em Estoque</th>
@@ -95,8 +97,8 @@
                         <td>{{$product->unidadeMedida}}</td>
                         <td>{{Carbon\Carbon::parse($product->updated_at)->format('d/m/Y H:i')}}</td>
                         <td>
-                            <button type="button" onclick="showModalUpdate('{{$product->_id}}')">Editar</button>
-                            <button type="button" onclick="showModalDelete('{{$product->_id}}')">Excluir</button>
+                            <button type="button" class="btn btn-primary" onclick="showModalUpdate('{{$product->_id}}')">Editar</button>
+                            <button type="button" class="btn btn-danger" onclick="showModalDelete('{{$product->_id}}')">Excluir</button>
                         </td>
                     </tr>
                 </tbody>

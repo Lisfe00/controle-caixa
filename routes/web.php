@@ -36,4 +36,5 @@ Route::post('/get/sale/value/', [SalesController::class, 'get_value']);
 Route::post('/create/sale/', [SalesController::class, 'create'])->name('create.sale');
 Route::get('/get/sale/product/{codigo}', [SalesController::class, 'get_product']);
 Route::get('/get/sale/client/{cpf}', [SalesController::class, 'get_client']);
+Route::get('/show/sales', [SalesController::class, 'show_sales'])->name('show.sales');
 

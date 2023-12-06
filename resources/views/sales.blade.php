@@ -22,7 +22,7 @@
             <div class="items">
                 <a href="{{route('create.product.view')}}">Produtos</a>
                 <a href="{{route('create.client.view')}}">Clube especial</a>
-                <a>Histórico de vendas</a>
+                <a href="{{route('show.sales')}}">Histórico de vendas</a>
             </div>
         </nav>
     </header>
@@ -39,49 +39,51 @@
             <form action="{{route('create.sale')}}" class="vendasForm" id="myForm" method="POST" >
                 @csrf
                 <div>
-                    <label>Cliente clube?</label>
-                    <select name="clienteClube" id="cliente-clube">
+                    <label class="form-label">Cliente clube?</label>
+                    <select name="clienteClube" id="cliente-clube" class="form-control">
                         <option value="nao">Não</option>
                         <option value="sim">Sim</option>
                     </select>
-                    <input id="input-clube" type="text" class="clube-cpf" placeholder="Informe o CPF" onblur="verificaCpf(this)">
+                    <input id="input-clube" type="text" class="clube-cpf form-control" placeholder="Informe o CPF" onblur="verificaCpf(this)">
                 </div>
 
                 <div id="productsContainer">
                     <p>Produtos</p>
-                    <button type="button" onclick="addProduct()">Adicionar Produto</button>
+                    <button type="button" onclick="addProduct()" class="btn btn-primary">Adicionar Produto</button>
+                    <br>
                     <div class="product-container" id="product1">
                         <label>Produto 1</label>
-                        <input type="text" id="codigo_produto" name="codigo" placeholder="codigo" onblur="getProduct(this)">
-                        <input type="text" id="name" name="name" disabled>
-                        <input type="text" id="quantidade_produto" name="quantidade" placeholder="quantidade" onblur="makeValue()">
-                        <button type="button" onclick="removeProduct('product1')">Remover Produto</button>
+                        <input type="text" id="codigo_produto" name="codigo" placeholder="codigo" onblur="getProduct(this)" class="form-control">
+                        <input type="text" id="name" name="name" class="form-control" disabled>
+                        <input type="text" id="quantidade_produto" name="quantidade" placeholder="quantidade" onblur="makeValue()" class="form-control">
+                        <br>
+                        <button type="button" onclick="removeProduct('product1')" class="btn btn-primary">Remover Produto</button>
                     </div>
                 </div>
 
                 <div>
                     <label>Valor Total</label>
-                    <input id="valorTotal" type="text" readonly disabled name="valorTotal">
+                    <input id="valorTotal" type="text" readonly disabled name="valorTotal" class="form-control">
                 </div>
                 <div class="clube-cpf" id="valor-desconto">
                     <label>Valor com desconto clube</label>
-                    <input id="valorComDesconto" type="text" readonly disabled name="valorComDesconto">
+                    <input id="valorComDesconto" type="text" readonly disabled name="valorComDesconto" class="form-control">
                 </div>
                 <div>
                     <label>Nome do cliente</label>
-                    <input id="nome_pessoa" type="text" disabled name="nome_pessoa" value="Este não é um cliente clube">
+                    <input id="nome_pessoa" type="text" disabled name="nome_pessoa" value="Este não é um cliente clube" class="form-control">
                     <input id="cliente_clube" type="text" value="0" hidden>
                 </div>
                 <div>
                     <label>Método de pagamento</label>
-                    <select id="pagamento" name="pagamento">
+                    <select id="pagamento" name="pagamento"class="form-control">
                         <option value="dinheiro">Dinheiro</option>
                         <option value="cartao">Cartão de crédito</option>
                         <option value="debito">Cartão de débito</option>
                         <option value="vale-alimentacao">Vale Alimentação</option>
                     </select>
                 </div>
-                <button type="button" onclick="create()">Finalizar compra</button>
+                <button type="button" onclick="create()" class="btn btn-primary">Finalizar compra</button>
             </form>
 
         </section>

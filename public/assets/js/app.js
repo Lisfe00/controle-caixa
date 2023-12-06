@@ -29,11 +29,13 @@ function addProduct() {
     productContainer.id = productId;
 
     productContainer.innerHTML = `
+                <br>
                 <label>Produto ${productCounter}</label>
-                <input type="text" id="codigo_produto" name="codigo" placeholder="codigo" onblur="getProduct(this)">
-                <input type="text" id="name" name="name" disabled>
-                <input type="text" id="quantidade_produto" name="quantidade" placeholder="quantidade" onblur="makeValue()">
-                <button type="button" onclick="removeProduct('${productId}')">Remover Produto</button>
+                <input type="text" id="codigo_produto" name="codigo" placeholder="codigo" onblur="getProduct(this)" class="form-control">
+                <input type="text" id="name" name="name" class="form-control" disabled>
+                <input type="text" id="quantidade_produto" name="quantidade" placeholder="quantidade" onblur="makeValue()" class="form-control">
+                <br>
+                <button type="button" onclick="removeProduct('${productId}')" class="btn btn-primary">Remover Produto</button>
             `;
 
     container.appendChild(productContainer);

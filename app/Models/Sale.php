@@ -19,4 +19,17 @@ class Sale extends Model
         'valorComDesconto',
         'metodoPagamento',
     ];
+
+    protected $append = [
+        'valorTotalFormat',
+        'valorComDescontoFormat'
+    ];
+
+    function getvalorTotalFormatAttribute(){
+        return 'R$ '.number_format($this->valorTotal, 2, ',', '.');
+    }
+
+    function getvalorComDescontoFormatAttribute(){
+        return 'R$ '.number_format($this->valorComDesconto, 2, ',', '.');
+    }
 }
