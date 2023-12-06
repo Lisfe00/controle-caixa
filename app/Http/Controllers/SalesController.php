@@ -88,6 +88,9 @@ class SalesController extends Controller
             $valorCDesc += $data['quantidade'] * $product->valorUnitarioComDesconto;
         }
 
+        $valor = 'R$ '.number_format($valor, 2, ',', '.');
+        $valorCDesc = 'R$ '.number_format($valorCDesc, 2, ',', '.');
+        
         return compact('valor', 'valorCDesc');
     }
 
