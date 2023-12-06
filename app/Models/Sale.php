@@ -25,6 +25,14 @@ class Sale extends Model
         'valorComDescontoFormat'
     ];
 
+    protected $indexes = [
+        [
+            'key' => [
+                '_id' => 1,
+            ],
+        ],
+    ];
+
     function getvalorTotalFormatAttribute(){
         return 'R$ '.number_format($this->valorTotal, 2, ',', '.');
     }

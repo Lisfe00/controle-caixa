@@ -26,6 +26,14 @@ class Product extends Model
         'valorUnitarioComDescontoFormat'
     ];
 
+    protected $indexes = [
+        [
+            'key' => [
+                'codigo' => 1,
+            ],
+        ],
+    ];
+
     function getValorUnitarioFormatAttribute(){
         return 'R$ '.number_format($this->valorUnitario, 2, ',', '.');
     }

@@ -25,6 +25,13 @@ class Client extends Model
         'formatedCpf',
     ];
 
+    protected $indexes = [
+        [
+            'key' => [
+                'cpf' => 1,
+            ],
+        ],
+    ];
 
     function getformatedCpfAttribute()
     {
