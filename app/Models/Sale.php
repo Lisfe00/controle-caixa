@@ -20,11 +20,6 @@ class Sale extends Model
         'metodoPagamento',
     ];
 
-    protected $append = [
-        'valorTotalFormat',
-        'valorComDescontoFormat'
-    ];
-
     protected $indexes = [
         [
             'key' => [
@@ -32,12 +27,4 @@ class Sale extends Model
             ],
         ],
     ];
-
-    function getvalorTotalFormatAttribute(){
-        return 'R$ '.number_format((float)$this->valorTotal, 2, ',', '.');
-    }
-
-    function getvalorComDescontoFormatAttribute(){
-        return 'R$ '.number_format((float)$this->valorComDesconto, 2, ',', '.');
-    }
 }

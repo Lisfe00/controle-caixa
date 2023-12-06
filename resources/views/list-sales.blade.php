@@ -53,8 +53,8 @@
         @foreach($sales as $sale)
         <tr class="linha-clicavel">
             <th>@if($sale->clienteClube == null) 0 @else {{$sale->clienteClube}} @endif</th>
-            <th>{{$sale->valorTotalFormat}}</th>
-            <th>{{$sale->valorComDescontoFormat}}</th>
+            <th>{{$sale->valorTotal}}</th>
+            <th>{{$sale->valorComDesconto}}</th>
             <th>@if($sale->nomeCliente == null) Não é um cliente clube @else {{$sale->nomeCliente}} @endif </th>
             <th>{{$sale->metodoPagamento}}</th>
         </tr>

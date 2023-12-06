@@ -40,7 +40,7 @@
                 @csrf
                 <div>
                         <label>Cpf do cliente:</label>
-                        <input type="number" class="form-control" name="cpf">
+                        <input type="text" class="form-control" name="cpf" maxlength="11">
                     <div>    
                         <label>Nome do cliente:</label>
                         <input type="text" class="form-control" name="nome">

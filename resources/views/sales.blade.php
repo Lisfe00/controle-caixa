@@ -44,7 +44,7 @@
                         <option value="nao">Não</option>
                         <option value="sim">Sim</option>
                     </select>
-                    <input id="input-clube" type="text" class="clube-cpf form-control" placeholder="Informe o CPF" onblur="verificaCpf(this)">
+                    <input id="input-clube" type="text" class="clube-cpf form-control" placeholder="Informe o CPF" maxlength="11" onblur="verificaCpf(this)">
                 </div>
 
                 <div id="productsContainer">
